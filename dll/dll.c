@@ -4,14 +4,14 @@
 #include <string.h>
 
 bool initialized = false;
-
+/////////////////////////////////////////////////////////
 void init(List** list) {
   (*list) = (List*)malloc(sizeof(List));
   (*list)->size = 0;
   (*list)->head = (*list)->tail = (*list)->curr = NULL;
   initialized = true;
 }
-
+///////////////////////////////////////////////////////
 bool push_back(List* list, int ele) {
   if (initialized) {
     if (list->head == NULL && list->size == 0){
@@ -36,7 +36,7 @@ bool push_back(List* list, int ele) {
     return false;
   }
 }
-
+///////////////////////////////////////////////
 void print(List* list, bool reverse) {
   if(!reverse){
     Node* loop = list->head;
@@ -53,7 +53,7 @@ void print(List* list, bool reverse) {
   }
   printf("\n");
 }
-
+/////////////////////////////////////////////////
 Node* pop_back(List* list) {
   if (list->size == 0){
     return NULL;
@@ -69,5 +69,28 @@ Node* pop_back(List* list) {
   list->size--;
   return ret;
 }
-
+/////////////////////////////////////////////////
+Node* at(List* list, size_t ele){
+  if (ele >= list->size){
+    return NULL;   
+  }
+  Node* loop = list->head;
+  size_t index = 0;
+  while(index != ele){
+    loop = loop->next;
+    index++;
+  }
+  return loop;
+}
+////////////////////////////////////////////////
+Node* search(List* list, int ele){
+ Node* loop = list->head;
+ while(loop){
+   if (loop->data == ele)
+     break;
+   loop = loop->next;
+ }
+  return loop;
+}
+///////////////////////////////////////////////
 

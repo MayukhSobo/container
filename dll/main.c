@@ -12,7 +12,8 @@ int main(){
   push_back(list, 40);
   print(list, false);
   pop_back(list);
-  print(list, true);
-
+  printf("%d\n", at(list, 1)->data);
+  printf("%d\n", search(list, 30)->data);
+  /** printf("%d\n", search(list, 70)->data); */
   return 0;
 }

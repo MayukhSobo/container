@@ -24,6 +24,7 @@ void init(List**);
 bool push_back(List*, int);
 Node* pop_back(List*);
 void print(List*, bool);
-
+Node* at(List*, size_t);
+Node* search(List*, int);
 
 #endif /* __DLL_H__ */
