@@ -4,14 +4,14 @@
 #include <string.h>
 
 bool initialized = false;
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////
 void init(List** list) {
   (*list) = (List*)malloc(sizeof(List));
   (*list)->size = 0;
   (*list)->head = (*list)->tail = (*list)->curr = NULL;
   initialized = true;
 }
-///////////////////////////////////////////////////////
+////////////////////////////////////////////
 bool push_back(List* list, int ele) {
   if (initialized) {
     if (list->head == NULL && list->size == 0){
