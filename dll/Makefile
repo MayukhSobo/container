@@ -1,12 +1,12 @@
 ##############################################
-#	      Author  :  Mayukh Sarkar
+#	Author  :  Mayukh Sarkar
 #       Email   :  mayukh2012@icloud.com
 #       Type    :  Intermediate
 #       License :  GPL v3
 ##############################################
 
 ###########  Macros Deifines ##############
-CC 				:=  gcc
+CC 		:=  gcc
 C++11 		:= -std=c++11
 C++14 		:= -std=c++14
 CXXFLAGS	:= -c
@@ -15,7 +15,7 @@ EXE       := dll
 .PHONY    := clean
 
 SRC       := $(wildcard *.c)
-OBJ				:= $(patsubst %.c, %.o, $(SRC))
+OBJ	  := $(patsubst %.c, %.o, $(SRC))
 ##########################################
 
 
