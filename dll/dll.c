@@ -5,14 +5,14 @@
 
 bool initialized = false;
 /////////////////////////////////////////////
-void init(List** list) {
-  (*list) = (List*)malloc(sizeof(List));
+void init(dList** list) {
+  (*list) = (dList*)malloc(sizeof(dList));
   (*list)->size = 0;
   (*list)->head = (*list)->tail = (*list)->curr = NULL;
   initialized = true;
 }
 ////////////////////////////////////////////
-bool push_back(List* list, int ele) {
+bool push_back(dList* list, int ele) {
   if (initialized) {
     if (list->head == NULL && list->size == 0){
      list->head = (Node*)malloc(sizeof(Node));
@@ -37,7 +37,7 @@ bool push_back(List* list, int ele) {
   }
 }
 ///////////////////////////////////////////////
-void print(List* list, bool reverse) {
+void print(dList* list, bool reverse) {
   if(!reverse){
     Node* loop = list->head;
     while(loop != NULL) {
@@ -54,7 +54,7 @@ void print(List* list, bool reverse) {
   printf("\n");
 }
 /////////////////////////////////////////////////
-Node* pop_back(List* list) {
+Node* pop_back(dList* list) {
   if (list->size == 0){
     return NULL;
   }
@@ -70,7 +70,7 @@ Node* pop_back(List* list) {
   return ret;
 }
 /////////////////////////////////////////////////
-Node* at(List* list, size_t ele){
+Node* at(dList* list, size_t ele){
   if (ele >= list->size){
     return NULL;   
   }
@@ -83,7 +83,7 @@ Node* at(List* list, size_t ele){
   return loop;
 }
 ////////////////////////////////////////////////
-Node* search(List* list, int ele){
+Node* search(dList* list, int ele){
  Node* loop = list->head;
  while(loop){
    if (loop->data == ele)

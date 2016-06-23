@@ -16,15 +16,15 @@ typedef struct _List {
   Node* head;
   Node* tail;
   Node* curr;
-}List;
+}dList;
 
-void init(List**);
+void init(dList**);
 /////////////////////////////
 
-bool push_back(List*, int);
-Node* pop_back(List*);
-void print(List*, bool);
-Node* at(List*, size_t);
-Node* search(List*, int);
+bool push_back(dList*, int);
+Node* pop_back(dList*);
+void print(dList*, bool);
+Node* at(dList*, size_t);
+Node* search(dList*, int);
 
 #endif /* __DLL_H__ */

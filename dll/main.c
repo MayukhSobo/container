@@ -3,7 +3,7 @@
 
 int main(){
   
-  List* list = NULL;
+  dList* list = NULL;
   init(&list);
   if (!push_back(list, 10))
     return -1;
