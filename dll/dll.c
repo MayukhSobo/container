@@ -32,7 +32,7 @@ bool push_back_d(dList* list, int ele) {
     }
     return true;
   }else{
-    printf("List is not properly d_initialized");
+    printf("List is not properly initialized");
     return false;
   }
 }
