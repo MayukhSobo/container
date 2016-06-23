@@ -6,23 +6,23 @@
 typedef struct _Node {
   int data;
   struct _Node* next;
-}Node;
+}sNode;
 
 typedef struct _List {
   size_t size;
-  Node* head;
-  Node* tail;
-  Node* curr;
+  sNode* head;
+  sNode* tail;
+  sNode* curr;
 }sList;
 
 void init(sList**);
 /////////////////////////////
 
 bool push_back(sList*, int);
-Node* pop_back(sList*);
-void print(sList*, bool);
-Node* at(sList*, size_t);
-Node* search(sList*, int);
+sNode* pop_back(sList*);
+void print(sList*);
+sNode* at(sList*, size_t);
+sNode* search(sList*, int);
 
 
 #endif /* __SLL_H__ */

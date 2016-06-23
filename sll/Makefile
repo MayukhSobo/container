@@ -6,7 +6,7 @@
 ##############################################
 
 ###########  Macros Deifines ##############
-CC 		:=  gcc
+CC 				:=  gcc
 C++11 		:= -std=c++11
 C++14 		:= -std=c++14
 CXXFLAGS	:= -c
@@ -14,7 +14,7 @@ LINK      := -o
 EXE       := sll	
 .PHONY    := clean
 
-SRC       := $(wildcard *.c)
+SRC   := $(wildcard *.c)
 OBJ	  := $(patsubst %.c, %.o, $(SRC))
 ##########################################
 
