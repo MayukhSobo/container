@@ -18,13 +18,13 @@ typedef struct _List {
   dNode* curr;
 }dList;
 
-void init(dList**);
+void init_d(dList**);
 /////////////////////////////
 
-bool push_back(dList*, int);
-dNode* pop_back(dList*);
-void print(dList*, bool);
-dNode* at(dList*, size_t);
-dNode* search(dList*, int);
+bool push_back_d(dList*, int);
+dNode* pop_back_d(dList*);
+void printd(dList*, bool);
+dNode* at_d(dList*, size_t);
+dNode* search_d(dList*, int);
 
 #endif /* __DLL_H__ */

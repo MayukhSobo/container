@@ -3,17 +3,17 @@
 #include <stdio.h>
 #include <string.h>
 
-bool initialized = false;
+bool d_initialized = false;
 /////////////////////////////////////////////
-void init(dList** list) {
+void init_d(dList** list) {
   (*list) = (dList*)malloc(sizeof(dList));
   (*list)->size = 0;
   (*list)->head = (*list)->tail = (*list)->curr = NULL;
-  initialized = true;
+  d_initialized = true;
 }
 ////////////////////////////////////////////
-bool push_back(dList* list, int ele) {
-  if (initialized) {
+bool push_back_d(dList* list, int ele) {
+  if (d_initialized) {
     if (list->head == NULL && list->size == 0){
      list->head = (dNode*)malloc(sizeof(dNode));
      list->curr = list->tail = list->head;
@@ -32,12 +32,12 @@ bool push_back(dList* list, int ele) {
     }
     return true;
   }else{
-    printf("List is not properly initialized");
+    printf("List is not properly d_initialized");
     return false;
   }
 }
 ///////////////////////////////////////////////
-void print(dList* list, bool reverse) {
+void printd(dList* list, bool reverse) {
   if(!reverse){
     dNode* loop = list->head;
     while(loop != NULL) {
@@ -54,7 +54,7 @@ void print(dList* list, bool reverse) {
   printf("\n");
 }
 /////////////////////////////////////////////////
-dNode* pop_back(dList* list) {
+dNode* pop_back_d(dList* list) {
   if (list->size == 0){
     return NULL;
   }
@@ -70,7 +70,7 @@ dNode* pop_back(dList* list) {
   return ret;
 }
 /////////////////////////////////////////////////
-dNode* at(dList* list, size_t ele){
+dNode* at_d(dList* list, size_t ele){
   if (ele >= list->size){
     return NULL;   
   }
@@ -83,7 +83,7 @@ dNode* at(dList* list, size_t ele){
   return loop;
 }
 ////////////////////////////////////////////////
-dNode* search(dList* list, int ele){
+dNode* search_d(dList* list, int ele){
  dNode* loop = list->head;
  while(loop){
    if (loop->data == ele)

@@ -4,16 +4,16 @@
 int main(){
   
   dList* list = NULL;
-  init(&list);
-  if (!push_back(list, 10))
+  init_d(&list);
+  if (!push_back_d(list, 10))
     return -1;
-  push_back(list, 20);
-  push_back(list, 30);
-  push_back(list, 40);
-  print(list, false);
-  pop_back(list);
-  printf("%d\n", at(list, 1)->data);
-  printf("%d\n", search(list, 30)->data);
+  push_back_d(list, 20);
+  push_back_d(list, 30);
+  push_back_d(list, 40);
+  printd(list, false);
+  pop_back_d(list);
+  printf("%d\n", at_d(list, 1)->data);
+  printf("%d\n", search_d(list, 30)->data);
   /** printf("%d\n", search(list, 70)->data); */
   return 0;
 }
