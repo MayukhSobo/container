@@ -8,23 +8,23 @@ typedef struct _Node {
   struct _Node* prev;
   int data;
   struct _Node* next;
-}Node;
+}dNode;
 
 
 typedef struct _List {
   size_t size;
-  Node* head;
-  Node* tail;
-  Node* curr;
+  dNode* head;
+  dNode* tail;
+  dNode* curr;
 }dList;
 
 void init(dList**);
 /////////////////////////////
 
 bool push_back(dList*, int);
-Node* pop_back(dList*);
+dNode* pop_back(dList*);
 void print(dList*, bool);
-Node* at(dList*, size_t);
-Node* search(dList*, int);
+dNode* at(dList*, size_t);
+dNode* search(dList*, int);
 
 #endif /* __DLL_H__ */

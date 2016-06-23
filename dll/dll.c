@@ -15,14 +15,14 @@ void init(dList** list) {
 bool push_back(dList* list, int ele) {
   if (initialized) {
     if (list->head == NULL && list->size == 0){
-     list->head = (Node*)malloc(sizeof(Node));
+     list->head = (dNode*)malloc(sizeof(dNode));
      list->curr = list->tail = list->head;
      list->curr->data = ele;
      list->size++;
      list->curr->prev = list->curr->next = NULL;
     }else{
-      Node* temp = list->curr;
-      list->curr->next = (Node*)malloc(sizeof(Node));
+      dNode* temp = list->curr;
+      list->curr->next = (dNode*)malloc(sizeof(dNode));
       list->curr = list->curr->next;
       list->curr->data = ele;
       list->tail = list->curr;
@@ -39,13 +39,13 @@ bool push_back(dList* list, int ele) {
 ///////////////////////////////////////////////
 void print(dList* list, bool reverse) {
   if(!reverse){
-    Node* loop = list->head;
+    dNode* loop = list->head;
     while(loop != NULL) {
       printf("%d ", loop->data);
       loop = loop->next;
     }
   }else{
-  Node* loop = list->tail;
+  dNode* loop = list->tail;
    while(loop != NULL){
      printf("%d ", loop->data);
      loop = loop->prev;
@@ -54,13 +54,13 @@ void print(dList* list, bool reverse) {
   printf("\n");
 }
 /////////////////////////////////////////////////
-Node* pop_back(dList* list) {
+dNode* pop_back(dList* list) {
   if (list->size == 0){
     return NULL;
   }
 
-  Node* temp = list->tail;
-  Node* ret = (Node*)malloc(sizeof(Node));
+  dNode* temp = list->tail;
+  dNode* ret = (dNode*)malloc(sizeof(dNode));
   ret->data = temp->data;
   ret->next = ret->prev = NULL;
   list->tail = list->tail->prev;
@@ -70,11 +70,11 @@ Node* pop_back(dList* list) {
   return ret;
 }
 /////////////////////////////////////////////////
-Node* at(dList* list, size_t ele){
+dNode* at(dList* list, size_t ele){
   if (ele >= list->size){
     return NULL;   
   }
-  Node* loop = list->head;
+  dNode* loop = list->head;
   size_t index = 0;
   while(index != ele){
     loop = loop->next;
@@ -83,8 +83,8 @@ Node* at(dList* list, size_t ele){
   return loop;
 }
 ////////////////////////////////////////////////
-Node* search(dList* list, int ele){
- Node* loop = list->head;
+dNode* search(dList* list, int ele){
+ dNode* loop = list->head;
  while(loop){
    if (loop->data == ele)
      break;
