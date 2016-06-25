@@ -54,19 +54,13 @@ void printd(dList* list, bool reverse) {
   printf("\n");
 }
 /////////////////////////////////////////////////
-dNode* pop_back_d(dList* list) {
-  if (list->size == 0){
-    return NULL;
-  }
-
-  dNode* temp = list->tail;
-  dNode* ret = (dNode*)malloc(sizeof(dNode));
-  ret->data = temp->data;
-  ret->next = ret->prev = NULL;
-  list->tail = list->tail->prev;
+int pop_back_d(dList* list) {
+  int ret;
+  list->curr = list->tail->prev;
+  ret = list->tail->data;
+  free(list->tail);
+  list->tail = list->curr;
   list->tail->next = NULL;
-  free(temp);
-  list->size--;
   return ret;
 }
 /////////////////////////////////////////////////

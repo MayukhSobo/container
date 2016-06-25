@@ -22,7 +22,7 @@ void init_d(dList**);
 /////////////////////////////
 
 bool push_back_d(dList*, int);
-dNode* pop_back_d(dList*);
+int pop_back_d(dList*);
 void printd(dList*, bool);
 dNode* at_d(dList*, size_t);
 dNode* search_d(dList*, int);
