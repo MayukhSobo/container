@@ -19,7 +19,7 @@ void init(sList**);
 /////////////////////////////
 
 bool push_back(sList*, int);
-sNode* pop_back(sList*);
+int pop_back(sList*);
 void print(sList*);
 sNode* at(sList*, size_t);
 sNode* search(sList*, int);

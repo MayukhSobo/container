@@ -11,9 +11,7 @@ void init(sList** list) {
   s_initialized = true;
 }
 
-
 bool push_back(sList* list, int ele){
-  
   if (s_initialized){
     if (list->size == 0 && list->head == NULL){
       // This is the first element
@@ -38,6 +36,42 @@ bool push_back(sList* list, int ele){
   return true;
 }
 
+int pop_back(sList* list){
+  list->curr = list->head;
+  int ret;
+  while(list->curr->next->next)
+    list->curr = list->curr->next;
+  list->tail = list->curr;
+  ret = list->curr->next->data;
+  free(list->tail->next);
+  list->tail->next = NULL;
+  list->size--;
+  return ret; 
+}
+
+sNode* at(sList* list, size_t index){
+  if (index <= (size_t)list->size){
+    size_t c = 0;
+    list->curr = list->head;    
+    while(c != index){
+      list->curr = list->curr->next;
+      c++;
+    }
+  return list->curr;
+  }
+  return NULL; 
+}
+
+sNode* search(sList* list, int ele){
+  list->curr = list->head;
+  while(list->curr){
+    if (list->curr->data == ele)
+      return list->curr;
+    list->curr = list->curr->next;
+  }
+  return NULL;
+}
+
 void print(sList* list){
   sNode* loop = list->head;
   while(loop){
@@ -46,4 +80,5 @@ void print(sList* list){
   }
   printf("\n");
 }
+
 
