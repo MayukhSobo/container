@@ -10,6 +10,6 @@ int main(){
   /** print(list); */
   printf("%d\n", at(list, 1)->data);
   printf("%d\n", search(list, 30)->data);
-  
+  printf("%d\n", pop_back(list));  
   return 0;
 }
