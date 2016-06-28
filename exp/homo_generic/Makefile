@@ -11,7 +11,7 @@ C++11 		:= -std=c++11
 C++14 		:= -std=c++14
 CXXFLAGS	:= -c
 LINK      := -o
-EXE       := dll	
+EXE       := homo_generic	
 .PHONY    := clean
 
 SRC       := $(wildcard *.c)
