@@ -1,23 +1,42 @@
 #include "./generic.h"
+#include <stdio.h>
 
 int main(){
   List* list;
-  
-  init(&list, CHAR);
-  char value = 'A';
-
-  /** init(&list, INT); */
-  /** int value = 10; */
-  
+  void* data;
+  //////////////////////////////////////////////// 
+  /** init(&list, CHAR); */
+  /** char value; */
+  init(&list, INT);
+  int value;
   /** init(&list, FLOAT); */
-  /** float value = 10.34f; */
-  
+  /** float value; */
   /** init(&list, DOUBLE); */
-  /** double value = 3.14563425; */
+  /** double value; */
+  ////////////////////////////////////////////////
   
-  
-  void* data = &value;
+  value = 1;
+  data = &value;
   push_back(list, data);
+
+  value = 2;
+  data = &value;
+  push_back(list, data);
+  
+  value = 3;
+  data = &value;
+  push_back(list, data);
+  
+  value = 4;
+  data = &value;
+  push_back(list, data);
+  
+  value = 5;
+  data = &value;
+  push_back(list, data);
+
+  print(list);
+  printf("%d\n", *(int*)pop_back(list)); 
   print(list);
   return 0;
 }
