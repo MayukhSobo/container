@@ -5,38 +5,38 @@ int main(){
   List* list;
   void* data;
   //////////////////////////////////////////////// 
-  /** init(&list, CHAR); */
-  /** char value; */
-  init(&list, INT);
-  int value;
+  init(&list, CHAR);
+  char value;
+  /** init(&list, INT); */
+  /** int value; */
   /** init(&list, FLOAT); */
   /** float value; */
   /** init(&list, DOUBLE); */
   /** double value; */
   ////////////////////////////////////////////////
   
-  value = 1;
+  value = 'A';
   data = &value;
   push_back(list, data);
 
-  value = 2;
+  value = 'B';
   data = &value;
   push_back(list, data);
   
-  value = 3;
+  value = 'C';
   data = &value;
   push_back(list, data);
   
-  value = 4;
+  value = 'D';
   data = &value;
   push_back(list, data);
   
-  value = 5;
+  value = 'E';
   data = &value;
   push_back(list, data);
 
   print(list);
-  printf("%d\n", *(int*)pop_back(list)); 
+  printf("%c\n", *(char*)pop_back(list)); 
   print(list);
   return 0;
 }
