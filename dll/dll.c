@@ -32,7 +32,7 @@ bool push_back_d(dList* list, int ele) {
     }
     return true;
   }else{
-    printf("List is not properly initialized");
+    fprintf(stderr, "%s\n", "List is not properly initialized!!");
     return false;
   }
 }
@@ -91,4 +91,40 @@ dNode* search_d(dList* list, int ele){
   return loop;
 }
 ///////////////////////////////////////////////
+bool push_at_d(dList* list, int ele, size_t index){
+  if (index > list->size){
+    fprintf(stderr, "%s\n", "Can not push at the mentioned index!!");
+    return false;
+  }
+  size_t cIndex = 0;
+  list->curr = list->head;
+  while(cIndex != index){
+   list->curr = list->curr->next;
+   cIndex++;
+  }
+  
+  dNode* middle = (dNode*)malloc(sizeof(dNode)); // creating the node to push
 
+  // fixing the previous connection
+  if (index < list->size) 
+    middle->prev = list->curr->prev;
+  else{
+      middle->prev = list->tail;
+      list->tail = middle;
+  }
+  
+  if (list->curr != list->head) 
+    middle->prev->next = middle;
+  else
+    list->head = middle;
+  
+  // fixing the next connection
+  middle->next = list->curr;
+  if (index < list->size) 
+    middle->next->prev = middle;
+
+  // some other stuffs
+  middle->data = ele;
+  list->size++;
+  return true;
+}

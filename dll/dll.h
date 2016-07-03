@@ -27,4 +27,6 @@ void printd(dList*, bool);
 dNode* at_d(dList*, size_t);
 dNode* search_d(dList*, int);
 
+bool push_at_d(dList*, int, size_t);
+
 #endif /* __DLL_H__ */
