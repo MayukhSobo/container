@@ -60,7 +60,11 @@ int pop_back_d(dList* list) {
   ret = list->tail->data;
   free(list->tail);
   list->tail = list->curr;
-  list->tail->next = NULL;
+  if (list->tail != NULL)
+    list->tail->next = NULL;
+  else
+    list->head = list->tail;
+  list->size--;
   return ret;
 }
 /////////////////////////////////////////////////
