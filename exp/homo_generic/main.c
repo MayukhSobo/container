@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main(){
+
   List* list;
   void* data;
   //////////////////////////////////////////////// 
