@@ -18,6 +18,8 @@ int main(){
   /** printf("%d\n", search(list, 70)->data); */
   /** printf("%lu", list->size); */
   push_at_d(list, 100, 0);
-  printd(list, true);
+  printd(list, false);
+  pop_from_d(list, 3);
+  printd(list, false);
   return 0;
 }

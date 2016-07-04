@@ -128,3 +128,35 @@ bool push_at_d(dList* list, int ele, size_t index){
   list->size++;
   return true;
 }
+///////////////////////////////////////////////////
+int pop_from_d(dList* list, size_t index) {
+  if (index >= list->size){
+    fprintf(stderr, "%s\n", "Index passed is not supported");
+    return -1;
+  }
+  int ret = 1;
+  size_t cIndex = 0;
+  list->curr = list->head;
+  while(cIndex != index){
+    list->curr = list->curr->next;
+    cIndex++;
+  }
+  /** printf("%d\n", list->curr->data); */
+  if (index == 0){
+    list->head = list->curr->next;
+    list->head->prev = NULL;
+  }
+  else if (index == list->size - 1){
+    list->tail = list->curr->prev;
+    list->tail->next = NULL;
+  }else{
+    list->curr->prev->next = list->curr->next;
+    list->curr->next->prev = list->curr->prev;
+  }
+  ret = list->curr->data;
+  free(list->curr);
+  list->size--;
+  return ret;
+}
+
+

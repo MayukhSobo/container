@@ -28,5 +28,5 @@ dNode* at_d(dList*, size_t);
 dNode* search_d(dList*, int);
 
 bool push_at_d(dList*, int, size_t);
-
+int pop_from_d(dList*, size_t);
 #endif /* __DLL_H__ */
