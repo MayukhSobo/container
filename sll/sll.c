@@ -37,16 +37,20 @@ bool push_back(sList* list, int ele){
 }
 
 int pop_back(sList* list){
-  list->curr = list->head;
   int ret;
-  while(list->curr->next->next)
+  sNode* p = NULL;
+  list->curr = list->head;
+  while(list->curr->next){
+    p = list->curr;
     list->curr = list->curr->next;
-  list->tail = list->curr;
-  ret = list->curr->next->data;
-  free(list->tail->next);
-  list->tail->next = NULL;
+  }
+  ret = list->curr->data;
+  free(list->curr);
   list->size--;
-  return ret; 
+  list->tail = list->curr = p;
+  if (list->size == 0)
+    list->head = NULL;
+  return ret;
 }
 
 sNode* at(sList* list, size_t index){
@@ -81,4 +85,52 @@ void print(sList* list){
   printf("\n");
 }
 
+void create(sList* list, int* elems, size_t len){
+  int i;
+  for(i = 0; i < (int)len; i++){
+   if (i == 0){
+    // This is the first element 
+    list->head = (sNode*)malloc(sizeof(sNode));
+    list->head->data = elems[i];
+    list->head->next = NULL;
+    list->curr = list->tail = list->head;
+    list->size++;
+   }else{
+     // Already entered
+    list->curr->next = (sNode*)malloc(sizeof(sNode)); 
+    list->curr = list->curr->next;
+    list->curr->data = elems[i];
+    list->curr->next = NULL;
+    list->tail = list->curr;
+    list->size++;
+   }
+  }
+}
+
+void reverse(sList* list){
+ sNode* p = NULL; 
+ list->curr = list->head;
+ sNode* n;
+ while(list->curr){
+  n = list->curr->next;
+  list->curr->next = p;
+  p = list->curr;
+  list->curr = n;
+ }
+ list->head = p;
+}
+
+static void _remove(sNode* node){
+ if (node->next == NULL){
+   free(node);
+ }else{
+   _remove(node->next);
+   free(node);
+ }
+}
+
+void purge(sList* list){
+  _remove(list->head);
+  list->head = NULL;
+}
 

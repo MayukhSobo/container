@@ -23,6 +23,7 @@ int pop_back(sList*);
 void print(sList*);
 sNode* at(sList*, size_t);
 sNode* search(sList*, int);
-
-
+void create(sList* list, int*, size_t);
+void reverse(sList* list);
+void purge(sList*);
 #endif /* __SLL_H__ */
